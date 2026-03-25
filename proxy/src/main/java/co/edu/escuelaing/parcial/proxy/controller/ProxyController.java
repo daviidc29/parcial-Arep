@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.WebApplicationContext;
 
 import co.edu.escuelaing.parcial.proxy.service.ProxyService;
 
@@ -31,9 +32,9 @@ public class ProxyController {
         return delegate(()-> proxyService.fbinarySearch(value));
     }
 
-    public String delegate(){
+    public ResponseEntity<String> delegate(){
         try {
-            
+            return 
         } catch (Exception e) {
             // TODO: handle exception
         }
