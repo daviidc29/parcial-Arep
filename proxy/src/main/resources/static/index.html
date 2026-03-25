@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+ 
+    <h2>linearSearch</h2>
+    <label for="linearSearchValue">Value:</label><br>
+    <input type="text" id="linearSearchValue" value="10,20,13,40,60"><br>
+    <input type="button" value="Calculate linearSearch" onclick="loadGetMsg('linearSearch', 'linearSearchValue', 'linearSearchResponse')">
+    <pre id="linearSearchResponse"></pre>
+ 
+    <h2>binarySearch</h2>
+    <label for="binarySearchValue">Value:</label><br>
+    <input type="text" id="binarySearchValue" value="10,20,13,40,60"><br>
+    <input type="button" value="Calculate binarySearch" onclick="loadGetMsg('binarySearch', 'binarySearchValue', 'binarySearchResponse')">
+    <pre id="binarySearchResponse"></pre>
+ 
+
+<script>
+    function loadGetMsg(operation, inputId, responseId) {
+        let valueVar = document.getElementById(inputId).value;
+        const xhttp = new XMLHttpRequest();
+  
+        xhttp.onload = function() {
+            document.getElementById(responseId).textContent = this.responseText;
+        };
+ 
+        xhttp.onerror = function() {
+            document.getElementById(responseId).textContent = 'Request failed';
+        };
+ 
+        xhttp.open('GET', '/api/proxy/' + operation + '?value=' + valueVar);
+        xhttp.send();
+    }
+ 
+</script>
+</body>
+</html>
