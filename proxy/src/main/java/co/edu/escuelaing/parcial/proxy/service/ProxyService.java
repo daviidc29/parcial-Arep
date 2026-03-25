@@ -38,7 +38,7 @@ public class ProxyService {
         return f("/api/list/linearSearch", value);
     }
 
-    public String forwardbinarySearch(String value) throws URISyntaxException {
+    public String fbinarySearch(String value) throws URISyntaxException {
         return f("/api/math/binarySearch", value);
     }
 
